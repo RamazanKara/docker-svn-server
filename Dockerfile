@@ -1,4 +1,4 @@
-FROM alpine:3.11.3
+FROM alpine:latest
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -6,13 +6,13 @@ ARG VERSION
 
 LABEL org.label-schema.build-date=$BUILD_DATE \
 	org.label-schema.description="SVN Server" \
-	org.label-schema.docker.cmd="docker run --detach --publish 3690:3690 --volume $PWD:/var/opt/svn garethflowers/svn-server" \
+	org.label-schema.docker.cmd="docker run --detach --publish 3690:3690 --volume $PWD:/var/opt/svn RamazanKara/svn-server" \
 	org.label-schema.name="svn-server" \
 	org.label-schema.schema-version="1.0" \
-	org.label-schema.url="https://subversion.apache.org" \
+	org.label-schema.url="https://subversion.apache.org" \ 
 	org.label-schema.vcs-ref=$VCS_REF \
-	org.label-schema.vcs-url="https://github.com/garethflowers/docker-svn-server" \
-	org.label-schema.vendor="garethflowers" \
+	org.label-schema.vcs-url="https://github.com/RamazanKara/docker-svn-server" \
+	org.label-schema.vendor="RamazanKara" \
 	org.label-schema.version=$VERSION
 
 CMD [ "/usr/bin/svnserve", "--daemon", "--foreground", "--root", "/var/opt/svn" ]
